@@ -14,7 +14,6 @@ inputs:
   skip-save:
     description: 'To save cache after the build or not'
     required: false
-    default: false
   upload-chunk-size:
     description: 'The chunk size used to split up large files during upload, in bytes'
     required: false
