@@ -25,7 +25,7 @@ runs:
   using: 'node16'
   main: 'dist/restore/index.js'
   post: 'dist/save/index.js'
-  post-if: ( inputs.skip-save == 'no') && (success() || failure())
+  post-if: inputs.skip-save == 'no'
 branding:
   icon: 'archive'
   color: 'gray-dark'
