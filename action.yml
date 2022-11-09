@@ -15,6 +15,10 @@ inputs:
     description: 'To save cache after the build or not'
     required: false
     default: 'no'
+  skip-restore:
+    description: 'To restore cache before the build or not'
+    required: false
+    default: 'no'
   upload-chunk-size:
     description: 'The chunk size used to split up large files during upload, in bytes'
     required: false
@@ -23,7 +27,9 @@ outputs:
     description: 'A boolean value to indicate an exact match was found for the primary key'
 runs:
   using: 'node16'
-  main: 'dist/restore/index.js'
+  pre: 'dist/restore/index.js'
+  pre-if: inputs.skip-restore == 'no'
+  main: 'dist/index.js'
   post: 'dist/save/index.js'
   post-if: inputs.skip-save == 'no'
 branding:
