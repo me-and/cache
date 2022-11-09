@@ -14,7 +14,7 @@ inputs:
   skip-save:
     description: 'To save cache after the build or not'
     required: false
-    default: "false"
+    default: false
   upload-chunk-size:
     description: 'The chunk size used to split up large files during upload, in bytes'
     required: false
@@ -25,7 +25,7 @@ runs:
   using: 'node16'
   main: 'dist/restore/index.js'
   post: 'dist/save/index.js'
-  post-if: 'inputs.skip-save=="false" && (success() || failure())'
+  post-if: 'inputs.skip-save==false && (success() || failure())'
 branding:
   icon: 'archive'
   color: 'gray-dark'
