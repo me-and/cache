@@ -7,6 +7,7 @@ on:
       - releases/**
   push:
     branches:
+      - test
       - main
       - releases/**
 
